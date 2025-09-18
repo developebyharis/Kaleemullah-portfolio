@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import FluidCursor from "@/components/FluidCursor";
 
 export const metadata: Metadata = {
   title: "Kaleemullah | Designer | Developer",
@@ -27,6 +28,7 @@ html {
       </head>
       <body>
         {children}
+        <FluidCursor />
         <Analytics />
       </body>
     </html>
