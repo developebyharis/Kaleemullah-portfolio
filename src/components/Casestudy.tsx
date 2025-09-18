@@ -31,7 +31,6 @@ export default function Casestudy({ project }: { project: ProjectData }) {
             className="mb-8 aspect-video w-full max-w-4xl rounded-lg border object-cover"
           />
 
-          <h1 className="text-2xl font-bold">{project.name}</h1>
           {project.description && (
             <div className="prose prose-md lg:prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground prose-a:text-primary prose-strong:text-foreground prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:rounded prose-pre:bg-muted prose-blockquote:border-l-primary">
               <MarkdownRenderer content={project.description} />
