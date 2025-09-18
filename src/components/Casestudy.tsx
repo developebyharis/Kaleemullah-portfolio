@@ -2,6 +2,7 @@ import { getContentfulAssetUrl } from "@/lib/utils";
 import { Asset } from "contentful";
 import remarkGfm from "remark-gfm";
 import Markdown from "react-markdown";
+import MarkdownRenderer from "./MarkdownRenderer";
 
 interface ProjectData {
   name: string;
@@ -27,25 +28,18 @@ export default function Casestudy({ project }: { project: ProjectData }) {
               "/placeholder.svg"
             }
             alt={project.name}
-            className="mb-8 aspect-video w-full max-w-3xl rounded-lg border object-cover"
+            className="mb-8 aspect-video w-full max-w-4xl rounded-lg border object-cover"
           />
 
-          <div className="prose dark:prose-invert">
-            <h1>{project.name}</h1>
-            {project.description && (
-              <div
-                className="prose prose-slate prose-img:rounded-xl prose-img:border
-     dark:prose-invert max-w-none mt-10 prose-a:text-blue-600"
-              >
-                <Markdown remarkPlugins={[remarkGfm]}>
-                  {project.description}
-                </Markdown>
-              </div>
-            )}
-          </div>
+          <h1 className="text-2xl font-bold">{project.name}</h1>
+          {project.description && (
+            <div className="prose prose-md lg:prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground prose-a:text-primary prose-strong:text-foreground prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:rounded prose-pre:bg-muted prose-blockquote:border-l-primary">
+              <MarkdownRenderer content={project.description} />
+            </div>
+          )}
         </article>
 
-        <aside className="lg:max-w-[300px] lg:max-h-[400px] bg-zinc-200 rounded-2xl">
+        <aside className="lg:max-w-[350px] w-full lg:max-h-[400px] bg-zinc-200 rounded-2xl">
           <div className="border-border bg-accent flex flex-col items-start rounded-lg border py-6 md:py-8">
             <div className="mb-8 px-6">
               <img

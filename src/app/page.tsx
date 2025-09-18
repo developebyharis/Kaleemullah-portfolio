@@ -5,7 +5,7 @@ import { FetchProjects } from "@/lib/Contentfull";
 export default async function Page() {
   const projects = await FetchProjects();
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#F6F4F4" }}>
+    <div className="min-h-screen">
       <div className="hidden lg:flex h-screen">
         <div className="w-[30%] ">
           <Header />

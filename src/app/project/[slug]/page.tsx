@@ -19,13 +19,12 @@ export default async function ProjectPage({
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#F6F4F4" }}>
+    <div className="min-h-screen">
       <Header />
 
-      <div className="hidden lg:flex fixed left-0 top-2 h-screen w-[30%] flex-col">
-        <Hero about={false} />
+      <div className="hidden lg:flex fixed left-0 top-2 h-screen flex-col">
       </div>
-      <div className="lg:ml-[30%] lg:pt-4 pt-12">
+      <div className="lg:pt-4 pt-12">
         <div className="lg:h-screen lg:overflow-y-auto">
           <div className="flex-1 overflow-y-auto">
             <Casestudy project={project} />

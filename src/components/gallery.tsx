@@ -14,10 +14,8 @@ interface GalleryProps {
 }
 
 export default function Gallery({ projects }: GalleryProps) {
-  const categories = ["All", "UI/UX", "Branding", "Campaign", "Print"];
   return (
     <div className="flex flex-col h-full">
-      {/* Projects grid */}
       <div className="flex-1">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 p-4 auto-rows-max">
           {projects && projects.length > 0 ? (

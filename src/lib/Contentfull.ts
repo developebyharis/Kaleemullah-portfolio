@@ -57,7 +57,7 @@ export async function FetchHero(): Promise<Hero> {
     name: hero.fields.name as string,
     title: hero.fields.title as string,
     intro: hero.fields.intro as string,
-    avatar: ((hero?.fields?.image as Asset)?.fields?.file?.url as string) ?? ""
+    avatar: ((hero?.fields?.image as Asset)?.fields?.file?.url as string) ?? "",
   };
 }
 
