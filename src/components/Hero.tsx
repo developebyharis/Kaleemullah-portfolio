@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { GrainGradient } from "@paper-design/shaders-react";
 import { FetchHero } from "@/lib/Contentfull";
+import Image from "next/image";
 
 type HeroProps = {
   about?: boolean;
@@ -13,6 +14,18 @@ export default async function Hero({ about = true }: HeroProps) {
     <section className="min-h-screen flex flex-col justify-center items-center text-center px-6">
       {about ? (
         <div>
+          <div className="flex justify-center items-center">
+            <div className="relative w-40 h-40 md:w-48 md:h-48">
+              <Image
+                src={data.avatar}
+                fill
+                className="rounded-full object-cover border-4 border-pink-900 shadow-xl"
+                alt={`${data.name} avatar`}
+                priority
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-500/40 via-pink-400/30 to-blue-400/40 blur-2xl -z-10"></div>
+            </div>
+          </div>
           <h1 className="text-5xl md:text-6xl font-extralight tracking-tight text-stone-900">
             {data?.name}
           </h1>
