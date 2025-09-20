@@ -1,12 +1,10 @@
 import { Asset, createClient } from "contentful";
 import { unstable_noStore as noStore } from "next/cache";
 
-
 export const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE!,
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_API!,
 });
-
 
 export async function FetchHero() {
   noStore();
@@ -21,7 +19,9 @@ export async function FetchHero() {
   };
 }
 
-export async function FetchAbout(){
+export async function FetchAbout() {
+  noStore();
+
   const res = await client.getEntries({ content_type: "about" });
   const item = res.items[0];
   return {
@@ -30,6 +30,8 @@ export async function FetchAbout(){
   };
 }
 export async function FetchSkills() {
+  noStore();
+
   const res = await client.getEntries({ content_type: "skills" });
   const item = res.items[0];
   return {
@@ -39,6 +41,8 @@ export async function FetchSkills() {
 }
 
 export async function FetchEducation() {
+  noStore();
+
   const res = await client.getEntries({ content_type: "education" });
   return res.items.map((edu) => ({
     degree: edu.fields.degree as string,
@@ -48,6 +52,8 @@ export async function FetchEducation() {
 }
 
 export async function FetchProjects() {
+  noStore();
+
   const res = await client.getEntries({ content_type: "project" });
 
   return res.items.map((item) => ({
@@ -65,6 +71,7 @@ export async function FetchProjects() {
 }
 
 export async function FetchServices() {
+  noStore();
   const res = await client.getEntries({ content_type: "services" });
 
   return res.items.map((item) => ({
