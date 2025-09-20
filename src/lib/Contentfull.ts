@@ -1,4 +1,6 @@
 import { Asset, createClient } from "contentful";
+import { unstable_noStore as noStore } from "next/cache";
+
 
 export const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE!,
@@ -7,6 +9,7 @@ export const client = createClient({
 
 
 export async function FetchHero() {
+  noStore();
   const res = await client.getEntries({ content_type: "hero" });
   const hero = res.items[0];
 
