@@ -10,7 +10,7 @@ export default async function Header() {
 
   return (
     <>
-      <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50">
+      <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 px-6">
         <div className="flex items-center px-6 py-3 bg-white/5 dark:bg-black/5 backdrop-blur-xl border border-stone-300/30 dark:border-stone-700/30 rounded-full shadow-sm">
           <Link href="/" className="group pr-4">
             <span className="text-[0.7rem] font-light uppercase tracking-[0.15em] text-stone-700 dark:text-stone-300 group-hover:text-stone-900 dark:group-hover:text-white transition-colors duration-300">

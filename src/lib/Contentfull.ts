@@ -5,51 +5,8 @@ export const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_API!,
 });
 
-type Service = {
-  name: string;
-  description: string;
-  keyValues: string[];
-};
 
-type Project = {
-  name: string;
-  category: string;
-  description: string;
-  image: Asset;
-  company: string;
-  industry: string;
-  location: string;
-  companySize: string;
-  website: string;
-  topics: string;
-};
-type Hero = {
-  name: string;
-  title: string;
-  intro: string;
-  avatar: string;
-};
-type About = {
-  aboutMe: string;
-  cv: string;
-};
-
-type Skills = {
-  hardSkills: string[];
-  softSkills: string[];
-};
-
-type Education = {
-  degree: string;
-  school: string;
-  startEnd: string;
-};
-
-type Contact = {
-  email: string;
-  linkedin: string;
-};
-export async function FetchHero(): Promise<Hero> {
+export async function FetchHero() {
   const res = await client.getEntries({ content_type: "hero" });
   const hero = res.items[0];
 
@@ -61,7 +18,7 @@ export async function FetchHero(): Promise<Hero> {
   };
 }
 
-export async function FetchAbout(): Promise<About> {
+export async function FetchAbout(){
   const res = await client.getEntries({ content_type: "about" });
   const item = res.items[0];
   return {
@@ -69,7 +26,7 @@ export async function FetchAbout(): Promise<About> {
     cv: ((item.fields.cv as Asset)?.fields?.file?.url as string) ?? "",
   };
 }
-export async function FetchSkills(): Promise<Skills> {
+export async function FetchSkills() {
   const res = await client.getEntries({ content_type: "skills" });
   const item = res.items[0];
   return {
@@ -78,7 +35,7 @@ export async function FetchSkills(): Promise<Skills> {
   };
 }
 
-export async function FetchEducation(): Promise<Education[]> {
+export async function FetchEducation() {
   const res = await client.getEntries({ content_type: "education" });
   return res.items.map((edu) => ({
     degree: edu.fields.degree as string,
@@ -87,7 +44,7 @@ export async function FetchEducation(): Promise<Education[]> {
   }));
 }
 
-export async function FetchProjects(): Promise<Project[]> {
+export async function FetchProjects() {
   const res = await client.getEntries({ content_type: "project" });
 
   return res.items.map((item) => ({
@@ -104,7 +61,7 @@ export async function FetchProjects(): Promise<Project[]> {
   }));
 }
 
-export async function FetchServices(): Promise<Service[]> {
+export async function FetchServices() {
   const res = await client.getEntries({ content_type: "services" });
 
   return res.items.map((item) => ({
@@ -114,7 +71,7 @@ export async function FetchServices(): Promise<Service[]> {
   }));
 }
 
-export async function FetchContact(): Promise<Contact> {
+export async function FetchContact() {
   const res = await client.getEntries({ content_type: "contact" });
   const item = res.items[0];
   return {
